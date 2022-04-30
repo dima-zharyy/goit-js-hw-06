@@ -7,8 +7,8 @@ const ingredients = [
   "Condiments",
 ];
 
-const createLiElementsFromData = (array) => {
-  const newElements = array.map((el) => {
+const createLiElementsFromData = (data) => {
+  const newElements = data.map((el) => {
     const newElement = document.createElement("li");
     newElement.textContent = el;
     newElement.classList.add("item");
