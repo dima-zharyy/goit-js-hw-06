@@ -18,5 +18,5 @@ const createLiElementsFromData = (data) => {
 };
 
 const newElements = createLiElementsFromData(ingredients);
-const ingredientsListEl = document.querySelector("#ingredients");
-ingredientsListEl.append(...newElements);
+const ingredientsList = document.querySelector("#ingredients");
+ingredientsList.append(...newElements);
