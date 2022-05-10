@@ -6,10 +6,8 @@ const logCategoriesAndElements = (elements) => {
   console.log("Number of Categories: ", numberOfCategories);
 
   elements.forEach((element) => {
-    const titleEl = element.querySelector("h2");
-    const titleText = titleEl.textContent;
-    const listEl = element.querySelector("ul");
-    const numberOfElements = listEl.children.length;
+    const titleText = element.firstElementChild.textContent;
+    const numberOfElements = element.lastElementChild.children.length;
     console.log("Category: ", titleText);
     console.log("Elements: ", numberOfElements);
   });

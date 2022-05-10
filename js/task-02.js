@@ -8,13 +8,12 @@ const ingredients = [
 ];
 
 const createLiElementsFromData = (data) => {
-  const newElements = data.map((el) => {
+  return data.map((el) => {
     const newElement = document.createElement("li");
     newElement.textContent = el;
     newElement.classList.add("item");
     return newElement;
   });
-  return newElements;
 };
 
 const newElements = createLiElementsFromData(ingredients);

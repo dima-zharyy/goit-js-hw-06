@@ -35,43 +35,21 @@ function onCreateBoxes() {
 function createBoxes(amount) {
   const newBoxes = [];
 
-  if (refs.boxes.childElementCount) {
-    const lastBoxHeight = refs.boxes.lastElementChild.style.height;
-    const lastBoxWith = refs.boxes.lastElementChild.style.width;
-    for (let i = 0; i < amount; i += 1) {
-      if (i === 0) {
-        const newBox = document.createElement("div");
-        newBox.style.height = `${parseInt(lastBoxHeight) + 10}px`;
-        newBox.style.width = `${parseInt(lastBoxWith) + 10}px`;
-        newBox.style.backgroundColor = getRandomHexColor();
-        newBoxes.push(newBox);
-        continue;
-      }
-
-      const newBox = document.createElement("div");
-      newBox.style.height = `${parseInt(newBoxes[i - 1].style.height) + 10}px`;
-      newBox.style.width = `${parseInt(newBoxes[i - 1].style.width) + 10}px`;
-      newBox.style.backgroundColor = getRandomHexColor();
-      newBoxes.push(newBox);
-    }
-    return newBoxes;
-  }
+  let lastHeight = refs.boxes.childElementCount
+    ? refs.boxes.lastElementChild.style.height
+    : "20px";
+  let lastWidth = refs.boxes.childElementCount
+    ? refs.boxes.lastElementChild.style.width
+    : "20px";
 
   for (let i = 0; i < amount; i += 1) {
-    if (i === 0) {
-      const newBox = document.createElement("div");
-      newBox.style.height = "30px";
-      newBox.style.width = "30px";
-      newBox.style.backgroundColor = getRandomHexColor();
-      newBoxes.push(newBox);
-      continue;
-    }
-
     const newBox = document.createElement("div");
-    newBox.style.height = `${parseInt(newBoxes[i - 1].style.height) + 10}px`;
-    newBox.style.width = `${parseInt(newBoxes[i - 1].style.width) + 10}px`;
+    newBox.style.height = `${parseInt(lastHeight) + 10}px`;
+    newBox.style.width = `${parseInt(lastWidth) + 10}px`;
     newBox.style.backgroundColor = getRandomHexColor();
     newBoxes.push(newBox);
+    lastHeight = newBoxes[i].style.height;
+    lastWidth = newBoxes[i].style.width;
   }
   return newBoxes;
 }
